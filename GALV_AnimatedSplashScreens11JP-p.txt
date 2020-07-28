@@ -1,0 +1,65 @@
+/*:ja
+ * @plugindesc (v.1.1) タイトル画面の前に表示するアニメーションスプラッシュ画面を設定できます
+ * 
+ * @author Galv - galvs-scripts.com
+ * 
+ * @param ----- SPLASH SCREENS -----
+ * @text -----スプラッシュスクリーン-----
+ * @desc
+ * @default
+ * 
+ * @param Splash Images
+ * @text スプラッシュ画面
+ * @desc image,timer,fade,animId
+ * 詳細はヘルプ参照
+ * @default image,150,8,0|image,150,8,0
+ * 
+ * @param Splash Background
+ * @text スプラッシュ背景
+ * @desc スプラッシュ画面中の背景の色(例:#000000)または画像(/img/system/内)
+ * @default #333
+ * 
+ * @param Splash Skip
+ * @text スプラッシュスキップ
+ * @type select
+ * @option 全ての画面をスキップ
+ * @value ALL
+ * @option 1つだけスキップ
+ * @value ONE
+ * @option スキップを無効
+ * @value NONE
+ * @desc ALL:全ての画面をスキップ / ONE:1つだけスキップ / NONE:スキップを無効
+ * @default ONE
+ * 
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ * 
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/04/27/mv-animated-splash-screens/
+ * 
+ *   Galv's Animated Splash Screens
+ * ---------------------------------------------------------------------------
+ * このプラグインを使用すると、
+ * タイトル画面の前に表示するアニメーションのスプラッシュ画面を作成できます。
+ * このプラグインで使用される全てのスプラッシュ画面は、
+ * /img/system/
+ * から取得されます。
+ * 
+ * "Splash Images"(スプラッシュ画面)プラグインパラメーターは、
+ * 全てのスプラッシュを設定する場所です。
+ * 各スプラッシュ画面には、次の必須値があります。
+ * 
+ * image,timer,fade,animId
+ * 
+ * image  - 画像ファイル名
+ * timer  - 画像が画面に残るフレーム数
+ * fade   - 画像がフェードイン/フェードアウトする速度(低いほど遅くなります)
+ * animId - 画像がフェードインする時に再生されるアニメーションID
+ * 
+ * "|"で区切られた複数のスプラッシュ画面を持つことができます。
+ * 例
+ * image1,150,8,3|image2,150,8,2|image3,150,8,0
+ * ---------------------------------------------------------------------------
+ */

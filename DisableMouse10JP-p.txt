@@ -1,0 +1,19 @@
+/*:ja
+ * @plugindesc マウスクリックを無効にします
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2015/11/03/mv-disable-mouse-clicks/
+ *
+ * このスペースは意図的に空白になっています。
+ *
+ * --ムノクラより--
+ * パッチによる説明が要らないシンプルなプラグインですね…
+ *
+ */

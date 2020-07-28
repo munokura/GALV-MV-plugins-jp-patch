@@ -1,0 +1,63 @@
+/*:ja
+ * @plugindesc (v.1.8) 選択したメニューコマンドの横にアニメーション画像を表示します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Cursor Image
+ * @desc カーソルの画像ファイル名 (/img/system/内)
+ * @default WindowCursor
+ * @require 1
+ * @dir img/system/
+ * @type file
+ *
+ * @param Image Frames
+ * @desc カーソルアニメーションのフレーム数
+ * @default 4
+ *
+ * @param Position Centered
+ * @desc カーソル画像がコマンドに対して垂直方向に中央揃え設定。true/false
+ * @type boolean
+ * @default true
+ *
+ * @param Position Offset
+ * @desc x,y - メニューの選択コマンドに表示するカーソルの位置オフセット
+ * @default 0,0
+ *
+ * @param Animation Speed
+ * @desc アニメーションが各フレームを再生する速度。 数値が小さいほど、アニメーション速度が上がります。
+ * @default 6
+ *
+ * @param Command Indent
+ * @desc カーソルを配置するメニューのコマンドのインデント量
+ * @default 20
+ *
+ * @param Item Indent
+ * @desc メニューのアイテムとスキルのインデント量
+ * @default 20
+ *
+ * @param Start Hidden
+ * @desc ゲームのロード時にカーソルを非表示で開始。true/false
+ * @type boolean
+ * @default false
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's Animated Menu Cursor
+ * ---------------------------------------------------------------------------
+ * カーソル画像ファイルがプロジェクトの/img/system/フォルダー内に必要です。
+ * プラグインの設定が適切に設定されているか確認してください。
+ *
+ * 'ImageFrames'プラグイン設定のフレーム数で幅が割り切れる限り、
+ * 任意のサイズの画像を使用できます。
+ *
+ * ---------------------------------------------------------------------------
+ *    スクリプトコール
+ * ---------------------------------------------------------------------------
+ *
+ *     $gameSystem._cursorHidden = true;      // カーソル非表示
+ *     $gameSystem._cursorHidden = false;     // カーソル表示
+ */

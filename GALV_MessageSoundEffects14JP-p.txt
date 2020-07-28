@@ -1,0 +1,78 @@
+/*:ja
+ * @plugindesc (v.1.4) 文章の表示で文字表示と確認表示で効果音を再生します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Delay Time
+ * @desc 次のSEを再生しない各SEの後の間隔(フレーム)
+ * @default 4
+ *
+ * @param Default Talk SE
+ * @desc 文章の表示の各文字で再生される効果音。SEファイル名,音量,ピッチ,パン(オプション)
+ * @default Cursor1,60,150
+ *
+ * @param Default Confirm SE
+ * @desc プレイヤーが続行するメッセージを確認時、再生される効果音。SEファイル名,音量,ピッチ,パン(オプション)
+ * @default Cursor2,80,150
+ *
+ * @param -----------
+ * @desc
+ *
+ * @default
+ *
+ * @param Quick SE 1
+ * @desc プラグインコマンドのクイックSE 1
+ * @default Cursor1,65,100
+ *
+ * @param Quick SE 2
+ * @desc プラグインコマンドのクイックSE 2
+ * @default
+ *
+ * @param Quick SE 3
+ * @desc プラグインコマンドのクイックSE 3
+ * @default
+ *
+ * @param Quick SE 4
+ * @desc プラグインコマンドのクイックSE 4
+ * @default Cursor1,65,50
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ * Galv's Message Sound Effects
+ * ---------------------------------------------------------------------------
+ * プラグイン設定で文字表示と確認表示でのデフォルト効果音を設定します。
+ * パラメータは次のとおりです。
+ *
+ * SEファイル名,音量,ピッチ,パン(オプション)
+ *
+ * カンマで区切ってください。
+ * 例えば、以下はSEのCursor1を80の音量と150ピッチで再生します。
+ *
+ * Cursor1,80,150
+ *
+ * RPGツクールMVのデフォルトでは、以下の量に制限されますが、
+ * このプラグインを使用すると、この範囲を上下に超えた指定ができます。
+ *
+ * 音量: 0 - 100
+ * ピッチ: 50 - 150
+ *
+ * ---------------------------------------------------------------------------
+ *   プラグインコマンド
+ * ---------------------------------------------------------------------------
+ *   MSGSE TALK CLEAR                 // トークSEを削除
+ *   MSGSE TALK DEFAULT               // トークSEをデフォルトに変更
+ *   MSGSE TALK SoundName vol pit pan // トークSEを特定のサウンドに設定
+ *   MSGSE TALK x                     // トークSEをクイックSEに変更。 x = 1-4
+ *
+ *   MSGSE CONFIRM CLEAR                 // 確認SEを削除
+ *   MSGSE CONFIRM DEFAULT               // 確認SEをデフォルトに変更
+ *   MSGSE CONFIRM SoundName vol pit pan // 確認SEを特定のサウンドに設定
+ *   MSGSE CONFIRM x                     // 確認SEをクイックSEに変更。 x = 1-4
+ * ---------------------------------------------------------------------------
+ * 注:パン設定を省略して、0(デフォルト)に戻すことができます。
+ * プラグインが呼び出されると、SEは再び変更されるまで変わりません。
+ */

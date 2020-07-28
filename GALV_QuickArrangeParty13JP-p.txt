@@ -1,0 +1,112 @@
+/*:ja
+ * @plugindesc (v.1.3) マップ上でボタン(キー)を押して、パーティメンバーを並び替えできます
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Timeout
+ * @text タイムアウト
+ * @desc 使用可能なデフォルトボタン:パーティがウィンドウを自動的に閉じるまでのフレーム量
+ * @default 180
+ *
+ * @param Button
+ * @text ボタン
+ * @desc パーティの配置ウィンドウを開くキー
+ * @type select
+ * @option Tab
+ * @value tab
+ * @option Enter / スペース / Z
+ * @value ok
+ * @option Shift
+ * @value shift
+ * @option Control / Alt
+ * @value control
+ * @option Escape / テンキー0 / X / Insert
+ * @value escape
+ * @option Pagedown / W
+ * @value pagedown
+ * @option Pageup / Q
+ * @value pageup
+ * @option カーソル下 / テンキー2
+ * @value down
+ * @option カーソル左 / テンキー4
+ * @value left
+ * @option カーソル右 / テンキー6
+ * @value right
+ * @option カーソル上 / テンキー8
+ * @value up
+ * @option F9
+ * @value debug
+ * @default control
+ *
+ * @param Window Height
+ * @text ウィンドウ高
+ * @desc パーティアレンジウィンドウの高さ
+ * @default 100
+ *
+ * @param Window Position
+ * @text ウィンドウ位置
+ * @desc ウィンドウ位置
+ * 上:top / 中:middle / 下:bottom
+ * @type select
+ * @option 上
+ * @value top
+ * @option 中
+ * @value middle
+ * @option 下
+ * @value bottom
+ * @default top
+ *
+ * @param Actor Width
+ * @text アクター幅
+ * @desc パーティアレンジウィンドウのアクターを含むボックスの幅
+ * @default 70
+ *
+ * @param Dead Icon
+ * @text 戦闘不能アイコン
+ * @desc 戦闘不能パーティメンバーに表示されるアイコン
+ * @default 1
+ *
+ * @param Change Dead Battler
+ * @text 戦闘不能メンバー移動
+ * @type boolean
+ * @on 移動
+ * @off 移動しない
+ * @desc 戦闘不能になったメンバーを自動的に最後尾に移動。
+ * 移動:true / 移動しない:false
+ * @default false
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/04/22/mv-quick-arrange-party/
+ *
+ *   Galv's Quick Arrange Party
+ * ---------------------------------------------------------------------------
+ * このプラグインは、James Westbrookから、リクエストを受けました。
+ *
+ * 選択したボタンを押してパーティウィンドウを開閉し、
+ * 次にアクターに対応する番号(フルキーボードの左上のキー)を押して強調表示し、
+ * 交代したいアクターの番号を押します。
+ * 同じ番号が2回押されると、パーティリーダーと交代されます。
+ *
+ * プラグインは、
+ * 戦闘不能パーティメンバーをメンバーリストの最後に自動的に移動します。
+ * 戦闘でも発生する可能性がありますが、オプションです。
+ *
+ * 利用可能なデフォルトボタン:
+ * 'tab'        Tab
+ * 'ok'         Enter / スペース / Z
+ * 'shift'      Shift
+ * 'control'    Control / Alt
+ * 'escape'     Escape / テンキー0 / X / Insert
+ * 'pagedown'   Pagedown / W
+ * 'pageup'     Pageup / Q
+ * 'down'       カーソル下 / テンキー2
+ * 'left'       カーソル左 / テンキー4
+ * 'right'      カーソル右 / テンキー6
+ * 'up'         カーソル上 / テンキー8
+ * 'debug'      F9
+ */

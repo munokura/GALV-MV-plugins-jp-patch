@@ -1,0 +1,248 @@
+/*:ja
+ * @plugindesc イベントにプレイヤーとの指定距離内/視覚の180度内にあるかどうかを確認する機能を追加
+ * 
+ * @author Galv - galvs-scripts.com
+ * 
+ * @param LOS Blocking Terrain
+ * @desc 視線をブロックするタイルの地形タグID(コンマ区切り)
+ * @default 5,6
+ * 
+ * @param LOS Blocking Regions
+ * @desc 視線をブロックするタイルのリージョンID(コンマ区切り)
+ * @default 1,2
+ * 
+ * @param Tile Size
+ * @desc 使用しているタイルのピクセルサイズ
+ * Default: 48
+ * @default 48
+ * 
+ * @param Search Limit
+ * @desc デフォルトの経路探索のチェックの頻度。大きいと遅れが生じ、小さいと戻るのに失敗する可能性があります。
+ * Default: 12
+ * @default 24
+ * 
+ * @param --- イベントの動作 ---
+ * @desc
+ * @default
+ * 
+ * @param Behavior 0
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default freeze,approach,6,0,3,5,2
+ * 
+ * @param Behavior 1
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default rand,flee,4,0,4,5,6
+ * 
+ * @param Behavior 2
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default return,search,6,1,4,5,1
+ * 
+ * @param Behavior 3
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 4
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 5
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 6
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 7
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 8
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 9
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 10
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 11
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 12
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 13
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 14
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 15
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 16
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 17
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 18
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 19
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @param Behavior 20
+ * @desc 感知したイベントの動作
+ * moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ * @default
+ * 
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ * 
+ * ---------------------------------------------------------------------------
+ *   Galv's Event Detectors
+ * ---------------------------------------------------------------------------
+ * イベント感知プラグインです。
+ * イベントは特定の範囲内および視界内でプレイヤーを感知できます。
+ * 視界は、イベントの前弧で180度です。
+ * リージョン、地形タグ、イベントを設定し、
+ * プレイヤーの視界を遮ることができます。
+ * リージョンIDと地形タグIDは、プラグイン設定を使用して設定されます。
+ * イベントブロックの見通し線を作成するには、
+ * イベントページ内の注釈に下記のメモタグを入れる必要があります。
+ * 
+ *   <block_los>
+ * 
+ * このタグを持つ有効なページを持つイベントは、視界をブロックします。
+ * ページがタグのないページに変更された場合、視界はブロックされません。
+ * 
+ * ---------------------------------------------------------------------------
+ * 
+ * ---------------------------------------------------------------------------
+ *   Conditional Branch SCRIPT
+ * ---------------------------------------------------------------------------
+ * 以下のスクリプトコールを使用して、
+ * 条件分岐が呼び出された時、
+ * イベントがプレーヤーを感知できるかどうかを確認できます。
+ * (必要に応じて並列処理イベントで使用できます)
+ * 
+ *   Galv.DETECT.event(id,dist,los)
+ *   
+ *       id = 感知対象のイベントID
+ *       dist = プレーヤーからのタイル距離
+ *       los = 視覚のtrue/false
+ * 
+ * プレイヤーがイベントの距離範囲内にある場合、trueを返します。
+ * losがtrueの場合、プレイヤーが視界内にいるかどうかをチェックします。
+ * ---------------------------------------------------------------------------
+ * 
+ * ---------------------------------------------------------------------------
+ *   Event command SCRIPT
+ * ---------------------------------------------------------------------------
+ *     $gameSystem._undetectable = x;
+ * 
+ *       xはtrue/falseです。
+ *       プレーヤーを感知しない場合、trueにします。
+ * ---------------------------------------------------------------------------
+ * 
+ * ---------------------------------------------------------------------------
+ *   Behaviors
+ * ---------------------------------------------------------------------------
+ * 行動はイベントの'自律移動'設定の中で、
+ * イベントの反応を設定するために使用することができます。
+ * プラグインの設定は、以下の設定で設定することができ、
+ * 多くの振る舞いがあります。
+ * 
+ *       moveTypeBefore,moveTypeAfter,dist,los,speed,freq,balloon
+ *
+ * moveTypeBefore - 感知前のmoveTypes
+ * moveTypeAfter - 感知後のmoveTypes
+ *
+ * moveTypesは次のいずれかです。
+ *            approach, flee, search, freeze, rand, return
+ *            approach  - イベントはプレイヤーに向かって移動し、
+ *                        経路探索はありません。
+ *            flee   - イベントはプレイヤーから離れます
+ *            search - イベントはプレイヤーが最後に感知された位置に向かって、
+ *                     RPGツクールMVの経路探索を使用して移動します。
+ *                     '検索制限'はイベントがプレーヤーへの道を
+ *                     見つけるか戻るかを設定します。
+ *            freeze - イベントが止まります。
+ *            rand   - イベントはランダムに移動します。
+ *            return - イベントは元の位置を保存し、
+ *                     プレーヤーを感知しない場合、この位置に戻ります。
+ * dist    = 感知できるイベントからのタイル数での距離
+ * los     = 0 か 1... 視覚を使用する場合は1、しない場合は0
+ * speed   = 感知中の移動速度の変化 (1-6)
+ * freq    = 感知中の移動頻度の変化 (1-5)
+ * balloon = イベントがプレーヤーを感知したときに表示するバルーンID
+ * 
+ * 使い方
+ * イベントを設定するには、
+ * 自律移動内のカスタム移動ルート内で'スクリプト'を使用する必要があります。
+ * 
+ *       this.detector(id);
+ * 
+ * 選択した動作ID(プラグインセットアップの番号から)を使用します。
+ * 上記'moveTypeBefore'を選択し、
+ * 感知していない時、イベントページの速度と頻度の動作を制御します。
+ * 
+ * 例についてはデモをご覧ください。
+ * 
+ * デモの一例です。
+ * 下記で、プラグインパラメーター「Behavior 2」で設定した動きをします。
+ * 
+ * イベントの自律移動＞カスタム＞ルート＞スクリプトに下記を記入します。
+ *   this.detector(2);
+ * 「動作を繰り返す」のチェックをONにします。
+ * 
+ * サンプルでは「Behavior 2」が
+ * return,search,6,1,4,5,1
+ * となっています。
+ * 
+ * これは下記の意味を指します。
+ * moveTypeBefore - return - プレイヤーを感知しなくなったら、元の場所に戻る。
+ * moveTypeAfter - search - プレイヤーを追ってきます。
+ * dist - 6 - タイル6まで近づくと感知します。
+ * los - 1 - 視覚を使用します。
+ * speed - 4 - 移動スピードを4(標準速度)にします。
+ * freq - 5 - 感知中の移動頻度を5(最高)にします。
+ * balloon - 1 - 感知時にバルーンID1を表示します。
+ * 
+ */

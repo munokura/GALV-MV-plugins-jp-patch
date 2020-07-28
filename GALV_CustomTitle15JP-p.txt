@@ -1,0 +1,321 @@
+/*:ja
+ * @plugindesc (v.1.5) タイトル画面の外観を変更できます
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param -- Command Window --
+ * @text -- コマンドウィンドウ --
+ * @desc
+ * @default
+ *
+ * @param Cmd Width
+ * @text 幅
+ * @parent -- Command Window --
+ * @desc ウィンドウの幅(ピクセル単位)
+ * デフォルト:240
+ * @default 240
+ *
+ * @param Cmd Position X
+ * @text X位置
+ * @parent -- Command Window --
+ * @desc メニューのX位置コード
+ * デフォルト:(Graphics.boxWidth - this.width) / 2
+ * @default (Graphics.boxWidth - this.width) / 2
+ *
+ * @param Cmd Position Y
+ * @text Y位置
+ * @parent -- Command Window --
+ * @desc メニューのY位置コード
+ * デフォルト:Graphics.boxHeight - this.height - 96
+ * @default Graphics.boxHeight - this.height - 96
+ *
+ * @param Cmd Windowskin
+ * @text ウィンドウスキン
+ * @parent -- Command Window --
+ * @desc ウィンドウスキンファイル(/img/system/内)
+ * @default Window
+ * @require 1
+ * @dir img/system/
+ * @type file
+ *
+ * @param Cmd Window Opacity
+ * @text ウィンドウの不透明度
+ * @parent -- Command Window --
+ * @desc メニューの背景の不透明度
+ * デフォルト:255
+ * @default 255
+ *
+ * @param Cmd Text Align
+ * @text テキスト配置
+ * @parent -- Command Window --
+ * @desc メニューのテキスト配置
+ * 左:left / 中央:center / 右:right / デフォルト:left
+ * @default left
+ * @type select
+ * @option 左
+ * @value left
+ * @option 中央
+ * @value center
+ * @option 右
+ * @value right
+ *
+ * @param Cmd Font Name
+ * @text フォント名
+ * @parent -- Command Window --
+ * @desc フォント名。フォントのファイル名とは異なる場合に注意
+ * @default
+ *
+ * @param Cmd Font File
+ * @text フォントファイル
+ * @parent -- Command Window --
+ * @desc フォントファイル名(/fonts/内)
+ * @default
+ *
+ * @param Cmd Font Size
+ * @text フォントサイズ
+ * @parent -- Command Window --
+ * @desc メニューのフォントサイズ
+ * デフォルト:28
+ * @default 28
+ *
+ * @param Cmd Color
+ * @text カラー
+ * @parent -- Command Window --
+ * @desc テキストの色
+ * デフォルト:#ffffff
+ * @default #ffffff
+ *
+ * @param Cmd Outline Width
+ * @text アウトライン幅
+ * @parent -- Command Window --
+ * @desc メニューテキストのフォントアウトラインの幅
+ * デフォルト:4
+ * @default 4
+ *
+ * @param Cmd Outline Color
+ * @text アウトライン色
+ * @parent -- Command Window --
+ * @desc テキストアウトラインの色
+ * デフォルト:#000000
+ * @default #000000
+ *
+ * @param Cmd Button Size
+ * @text ボタンサイズ
+ * @parent -- Command Window --
+ * @desc ボタンのサイズ
+ * デフォルト:36
+ * @default 36
+ *
+ * @param -- Title Text --
+ * @text -- タイトルテキスト --
+ * @desc
+ * @default
+ *
+ * @param Title Position X
+ * @text X位置
+ * @parent -- Title Text --
+ * @desc テキストのX位置
+ * デフォルト:20
+ * @default 20
+ *
+ * @param Title Position Y
+ * @text Y位置
+ * @parent -- Title Text --
+ * @desc テキストのY位置
+ * デフォルト:Graphics.height / 4
+ * @default Graphics.height / 4
+ *
+ * @param Title Width
+ * @text 幅
+ * @parent -- Title Text --
+ * @desc テキストの幅
+ * デフォルト:Graphics.width - x * 2;
+ * @default Graphics.width - x * 2;
+ *
+ * @param Title Text Align
+ * @text テキスト配置
+ * @parent -- Title Text --
+ * @desc 左:left / 中央:center / 右:right / デフォルト:center
+ * @default center
+ * @type select
+ * @option 左
+ * @value left
+ * @option 中央
+ * @value center
+ * @option 右
+ * @value right
+ *
+ * @param Title Font Name
+ * @text フォント名
+ * @parent -- Title Text --
+ * @desc フォントの名前。 フォントのファイル名とは異なる場合に注意
+ * @default
+ *
+ * @param Title Font File
+ * @text フォントファイル名
+ * @parent -- Title Text --
+ * @desc フォントファイル名(/fonts/内)
+ * @default
+ *
+ * @param Title Font Size
+ * @text フォントサイズ
+ * @parent -- Title Text --
+ * @desc テキストのフォントの大きさ
+ * デフォルト:72
+ * @default 72
+ *
+ * @param Title Color
+ * @text テキスト色
+ * @parent -- Title Text --
+ * @desc テキストの色
+ * デフォルト:#ffffff
+ * @default #ffffff
+ *
+ * @param Title Outline Width
+ * @text アウトライン幅
+ * @parent -- Title Text --
+ * @desc テキストのアウトラインの幅
+ * デフォルト:8
+ * @default 8
+ *
+ * @param Title Outline Color
+ * @text アウトライン色
+ * @parent -- Title Text --
+ * @desc テキストアウトラインの色
+ * デフォルト:#000000
+ * @default #000000
+ *
+ * @param -- Press Start --
+ * @text -- スタートボタン --
+ * @default
+ *
+ * @param Start Image
+ * @text 開始画像
+ * @parent -- Press Start --
+ * @desc 表示画像(/img/system/内)。プレーヤーが[OK]を押すと消えます。 使用しない場合、無入力
+ * @default
+ * @require 1
+ * @dir img/system/
+ * @type file
+ *
+ * @param Start Position X
+ * @text ボタンX位置
+ * @parent -- Press Start --
+ * @desc スタートボタン画像のX位置コード
+ * デフォルト:(Graphics.boxWidth - this.pStart.width) / 2
+ * @default (Graphics.boxWidth - this.pStart.width) / 2
+ *
+ * @param Start Position Y
+ * @text ボタンY位置
+ * @parent -- Press Start --
+ * @desc スタートボタン画像のY位置コード
+ * デフォルト:Graphics.boxHeight - this.pStart.height - 96
+ * @default Graphics.boxHeight - this.pStart.height - 96
+ *
+ * @param Start Blinking
+ * @text 点滅効果
+ * @parent -- Press Start --
+ * @desc スタートボタンの点滅。 詳細はヘルプ参照
+ * fadeSpeed,pauseTimeIn,pauseTimeOut,minOpacity
+ * @default 5,10,10,120
+ *
+ * @param Start Show Once
+ * @text 1回表示
+ * @parent -- Press Start --
+ * @desc スタートボタン画像表示回数
+ * 1回のみ:true / 毎回表示:false
+ * @default true
+ *
+ * @param -- Advanced --
+ * @text -- 高度 --
+ * @default
+ *
+ * @param Layer Graphics
+ * @text レイヤーグラフィックス
+ * @parent -- Advanced --
+ * @desc レイヤーグラフィックス。 詳細はヘルプ参照
+ * fileName,xMove,yMove,opacity,z
+ * @default
+ *
+ * @param Animated Sprites
+ * @text アニメーションスプライト
+ * @parent -- Advanced --
+ * @desc アニメーションスプライト。 詳細はヘルプ参照
+ * fileName,frames,animSpeed,x,y,repeat,z,animId
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/06/13/mv-custom-title/
+ *
+ *   Galv's Custom Title
+ * ---------------------------------------------------------------------------
+ * デフォルトのタイトル画面の外観を変更できるプラグイン。
+ * ---------------------------------------------------------------------------
+ *   「点滅効果」設定
+ * ---------------------------------------------------------------------------
+ * 「スタートボタン」点滅効果を設定する設定。
+ * fadeSpeed    = 「スタートボタン」画像がフェードイン・フェードアウトする速度
+ * pauseTimeIn  = 完全にフェードインした時に画像が一時停止するフレーム
+ * pauseTimeOut = 完全にフェードアウトした時に画像が一時停止するフレーム
+ * minOpacity   = 画像が再びフェードインする前にフェードインする最小の不透明度
+ * ---------------------------------------------------------------------------
+ *
+ * ---------------------------------------------------------------------------
+ *   アニメーションスプライト
+ * ---------------------------------------------------------------------------
+ * このフィールドは、独自のカスタムメイドアニメーションシートを使用して、
+ * アニメーションスプライトを設定するためのものです。
+ * データは次の順序で入力する必要があります。
+ *
+ *      fileName,frames,animSpeed,x1-x2,y1-y2,repeat,z,animId
+ *
+ * fileName    = スプライトシート画像の名前(/img/system/内)
+ * frames      = スプライトが循環するフレームの数
+ * animSpeed   = スプライトがフレームを循環する速度
+ * x1-x2       = x1とx2の間でランダム化されたx位置
+ * y1-y2       = y1とy2の間でランダム化されたy位置
+ * repeat      = スプライトがループする場合、フレームかどうか(true/false)
+ * z           = 他の上/下に表示されるオブジェクトのzレベル
+ * animId      = スプライトがループする時の再生アニメーション
+ *
+ * 例:
+ * titlegalv,6,10,100-400,100-400,true,500,1
+ *
+ * 複数のアニメーションスプライトを追加するには、
+ * 次のアニメーションスプライトのデータを追加する前に、
+ * スプライトデータセットの後に|記号を追加します。
+ * 必要な数だけ追加できます。
+ *
+ * ---------------------------------------------------------------------------
+ *   レイヤーグラフィックス
+ * ---------------------------------------------------------------------------
+ * このフィールドは、レイヤー画像(/img/parallaxes/内)を設定します。
+ * データは次の順序で入力する必要があります。
+ *
+ *      fileName,xMove,yMove,opacity,z
+ *
+ * 複数のレイヤーを追加するには、次のレイヤー画像データを追加する前に、
+ * レイヤー画像データセットの後に|記号を追加します。
+ * 必要な数だけ追加できます。
+ *
+ * ---------------------------------------------------------------------------
+ *   Z値の位置
+ * ---------------------------------------------------------------------------
+ * デフォルトのタイトルオブジェクトには、z値が以下に設定されています。
+ * Title image 1  = 0
+ * Title Image 2  = 1
+ * Title Text     = 2
+ * Command Window = 3
+ * Press Start    = 4
+ * Animations     = 8
+ *
+ * レイヤー/スプライトを追加する場合、
+ * 値を使用して上記のいずれかに必要な位置に配置します。
+ * 10進数を使用して配置できます。
+ *
+ */

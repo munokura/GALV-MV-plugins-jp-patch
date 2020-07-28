@@ -1,0 +1,79 @@
+/*:ja
+ * @plugindesc (v.1.3) タッチ/クリックできるボタンを画面に表示します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Precache Buttons
+ * @text 事前キャッシュボタン
+ * @desc 事前にキャッシュするボタン画像ファイル名リスト(/img/system/内)
+ * @default BtnUp,BtnDown,BtnRight,BtnLeft,BtnOk,BtnCancel
+ *
+ * @param Disable Mouse Move
+ * @text マウス移動を無効化
+ * @desc マウスのクリックでマップ上のキャラクターの移動を無効に
+ * 無効:true / 有効:false
+ * @type boolean
+ * @on 無効
+ * @off 有効
+ * @default true
+ *
+ * @param Button Fade
+ * @text ボタンのフェード速度
+ * @desc 無効化/有効化時にボタンがフェードイン/フェードアウトする速度
+ * @default 30
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ *   Galv's Screen Buttons
+ * ---------------------------------------------------------------------------
+ * このプラグインを使用すると、
+ * 画面上にボタンを作成し、クリック/タッチしてスクリプトを実行したり、
+ * ボタンを押したりすることができます。
+ *
+ * ボタンにはIDが与えられ、
+ * ゲーム中に既存のボタンを新しいボタンに置き換える場合に使用できます。
+ *
+ * ---------------------------------------------------------------------------
+ *  スクリプトコール
+ * ---------------------------------------------------------------------------
+ *
+ *   Galv.SBTNS.addButton(id,'type','img',x,y,['actionType','action'],e);
+ *
+ *            id = ボタンのID。 各ボタンに一意の番号を使用します。
+ *        'type' = 現在の'map' / 'mapX'(XはマップID)
+ *         'img' = /img/system/ にある画像ファイル名
+ *             x = ボタンのx位置
+ *             y = ボタンのy位置
+ *  'actionType' = 次のタイプのいずれかを選択できます。
+ *                 'button'  ボタンが押されている間にボタンをエミュレートする
+ *                 'buttonT' トリガーされるボタンをエミュレートする
+ *                 'script'  ボタンが押された時、スクリプトコードを実行する
+ *                 'event'   ボタンが押された時、コモンイベントを実行する
+ *      'action' = actionTypeに関連する結果のアクション
+ *                 'button'アクションはキーを押すために使用されます。
+ *                         例:'ok','cancel','shift','up','down','left','right'
+ *                 'script'アクションは、実行するスクリプトコールです
+ *                 'event'アクションは、実行するコモンイベントIDです
+ *             e = イベント(文章の表示等)の実行中にボタンの不透明度の数値。
+ *                 0から255。
+ *                 255の場合、ボタンは表示されたままで、
+ *                 押し続けることができます。
+ *                 255未満の場合、ボタンは無効になります。
+ *                 ボタンをイベント中に自動的に非表示にするには、
+ *                 この空白のままにします。
+ *
+ *
+ * 例
+ * Galv.SBTNS.addButton(1,'map','BtnOk',570,500,['button','ok']);
+ * Galv.SBTNS.addButton(2,'map','BtnRun',690,500,['button','shift']);
+ * Galv.SBTNS.addButton(3,'map','BtnMenu',0,0,['script','SceneManager.push(Scene_Equip)']);
+ * Galv.SBTNS.addButton(4,'map1','BtnEvent',0,0,['event',1]);
+ *
+ *
+ *   $gameSystem._hideBtns = status;    // ステータスはtrue/falseで、
+ *                                         全てのボタンを非表示/表示できます
+ * ---------------------------------------------------------------------------
+ */

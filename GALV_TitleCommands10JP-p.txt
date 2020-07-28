@@ -1,0 +1,98 @@
+/*:ja
+ * @plugindesc タイトル画面のメニューに表示されるコマンドをカスタマイズできます。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Default Commands
+ * @text デフォルトのコマンド
+ * @desc 以下のMod条件が満たされる前のデフォルトのタイトルコマンドリスト
+ * @default New Game,new,always|Continue,con,isSave|Options,opt,always
+ *
+ * @param Mod Condition
+ * @text Mod条件
+ * @desc デフォルトの代わりにModコマンドを使用する条件。 使用しない場合、無入力
+ * @default
+ *
+ * @param Mod Commands
+ * @text Modコマンド
+ * @desc Mod条件が満たされた場合に使用されるタイトルコマンドリスト
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/07/07/mv-title-commands/
+ *
+ *   Galv's TitleCommands
+ * ---------------------------------------------------------------------------
+ * このプラグインは、
+ * タイトル画面のコマンドメニューを制御するために設計されました。
+ * このメニューに追加のコマンドを追加するプラグインを使用する場合、
+ * プラグインパラメーターで手動で追加する必要があります。
+ *
+ * 使い方
+ * ------------
+ * プラグイン設定には、メニューに表示するコマンドと
+ * 各コマンドに必要な条件を設定できる個別の入力ボックスが含まれています。
+ *
+ * --- デフォルトのコマンド ---
+ * 最初のボックスはデフォルトのメニューコマンド用で、
+ * それらの設定データが含まれています。
+ * 各メニューコマンドについて、データは次のように配置されます。
+ *
+ *      Command Text,function,condition,hide
+ *
+ * Command Text = コマンドボタンに表示されるテキスト
+ * function     = コマンドボタンの機能を制御する関数名
+ * condition    = コマンドボタンが有効になる条件
+ * hide         = コマンドボタンを無効にする代わりに非表示に設定するには、
+ *                true にします。不要な場合は無入力です。
+ *
+ * 複数のコマンドの場合、各コマンドデータを|記号で区切ります。
+ * これらのコマンドの順序は、メニュー内のボタンの順序を変更します。
+ *
+ * 例
+ *     New Game,new,always|Continue,con,isSave|Options,opt,always
+ *
+ * 関数クイックテキスト
+ *     new          = ニューゲーム
+ *     con          = コンティニュー
+ *     opt          = オプション
+ *     quit         = ゲーム終了
+ *     newPlus      = 強くてニューゲーム (要 Galv's New Game Plus プラグイン)
+ *     credits      = クレジット (要 Galv's Roll Credits プラグイン)
+ * Scene_Titleの関数のJavaScript関数名を使用できます。
+ * メニューにコマンドを追加する別のカスタムプラグインを使用している場合、
+ * そのプラグインの機能が何であるかを検出し、
+ * 設定の機能テキストで使用する必要があります。
+ *
+ * 条件のクイックテキスト
+ *     always      = コマンドは常に有効です
+ *     isSave      = 保存ファイルが存在する場合のみ有効になります
+ *     canNewGamePlus = New Game +が有効な場合(要 Galv's New Game Plus)
+ *
+ * Scene_Titleに関連するJavaScriptコードを使用します。 (上級)
+ *
+ *
+ * --- Mod条件 ---
+ * JavaScriptコードです(上級使用者向け)。
+ * この条件がtrueである場合、デフォルトコマンドを表示する代わりに、
+ * タイトルメニューにModコマンドが表示されます。
+ *
+ * 例
+ *   DataManager.isAnySavefileExists()
+ *     // 既存のセーブゲームがある場合
+ *
+ *   Galv.NEWGP.games
+ *     // GalvのNew Game Plusが必要です。
+ *     // ニューゲームに有効化されているデータがあるかを確認します。
+ *
+ *
+ * --- Modコマンド ---
+ * これらを上記の'デフォルトのコマンド'章と同じように設定します。
+ * Mod条件がない場合、何もしません。
+ *
+ */

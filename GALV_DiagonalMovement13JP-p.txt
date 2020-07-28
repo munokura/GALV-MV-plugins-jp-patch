@@ -1,0 +1,70 @@
+/*:ja
+ * @plugindesc (v.1.3) 基礎となる斜めの動きのプラグイン。他のGalvプラグイン互換向けに書かれています。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Diagonal Mouse
+ * @text マウス8方向
+ * @type boolean
+ * @on 使用
+ * @off 不使用
+ * @desc マウスクリックでの斜めのパス検索。他のパス検索プラグインと競合する場合があります。
+ * 使用:true / 不使用:false
+ * @default false
+ *
+ * @param Diagonal Charset
+ * @text 8方向キャラクターセット
+ * @type boolean
+ * @on 使用
+ * @off 不使用
+ * @desc 8方向キャラクターセットを使用（詳細はヘルプ参照）
+ * 使用:true / 不使用:false
+ * @default true
+ *
+ * @param Diagonal Speed
+ * @text 斜め速度
+ * @desc キャラクターが斜めに移動する時の速度の割合
+ * @default 90
+ *
+ * @param Block Diagonal
+ * @text 斜めブロック
+ * @type boolean
+ * @on ブロック
+ * @off 通過
+ * @desc 通過できないタイルを通過する時、斜めの動きをブロック
+ * ブロック:true / 通過:false
+ * @default false
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2015/12/12/mv-diagonal-movement/
+ *
+ *   Galv's Diagonal Movement
+ * ---------------------------------------------------------------------------
+ * このプラグインが上手く動作しない場合、
+ * プラグイン管理の一番上に置いてみてください。
+ * デフォルトの対角関数を上書きします。
+ *
+ * これが他のパス検索プラグインと競合する場合、
+ * 'Diagonal Mouse'(マウス8方向)設定をfalseに変更します。
+ *
+ * 'Diagonal Charsets'(8方向キャラクターセット)がtrueの場合、プラグインは、
+ * キャラクターが斜めを向いている場合、画像を変更します。
+ * 使用される新しい画像は、選択したキャラクター画像のすぐ下の位置にあります。
+ * キャラクターシートの上部にある画像のみが斜めの画像を持つことができます。
+ *
+ * 下部の画像には、斜めの画像はありません。
+ * ---------------------------------------------------------------------------
+ *   スクリプトコール
+ * ---------------------------------------------------------------------------
+ *
+ *   $gameSystem.disableVert = true;   // 斜めの動きを無効にする
+ *
+ *   $gameSystem.disableVert = false;  // 斜めの動きを有効にする
+ *
+ * ---------------------------------------------------------------------------
+ */

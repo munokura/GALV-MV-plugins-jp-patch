@@ -1,0 +1,97 @@
+/*:ja
+ * @plugindesc (v.1.0) プレイヤーがいる地形タグ/リージョンに応じて、表示する戦闘背景を指定します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Terrain Tag 1 Battlebacks
+ * @text 地形タグ1戦闘背景
+ * @desc 地形タグ1で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 2 Battlebacks
+ * @text 地形タグ2戦闘背景
+ * @desc 地形タグ2で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 3 Battlebacks
+ * @text 地形タグ3戦闘背景
+ * @desc 地形タグ3で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 4 Battlebacks
+ * @text 地形タグ4戦闘背景
+ * @desc 地形タグ4で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 5 Battlebacks
+ * @text 地形タグ5戦闘背景
+ * @desc 地形タグ5で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 6 Battlebacks
+ * @text 地形タグ6戦闘背景
+ * @desc 地形タグ6で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Terrain Tag 7 Battlebacks
+ * @text 地形タグ7戦闘背景
+ * @desc 地形タグ7で戦う時の戦闘背景
+ * battleback1,battleback2
+ * @default
+ *
+ * @param Region Battlebacks
+ * @text リージョンの戦闘背景
+ * @desc リージョンIDの高度な設定。ヘルプを参照
+ * id,battleback1,battleback2|id,battleback1,battleback2
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's Terrain Battlebacks
+ * ---------------------------------------------------------------------------
+ * プレイヤーがいる地形タグ/リージョンに応じて、戦闘背景を指定できます。
+ *
+ * RPGツクールMVのデフォルト機能では、タイルセットがフィールドタイプの場合、
+ * タイルによって戦闘背景を自動的に選択します。
+ * このプラグインはその機能を維持しますが、選択した設定が優先されます。
+ * プラグイン設定に加えて、マップのメモ欄を使用して、
+ * 個々のマップの地形とリージョンの戦闘背景を指定することができます。
+ *
+ * マップのメモタグ
+ *
+ *     <rbacks x:battleback1,battleback2>   // x = 上書きするリージョンID
+ *
+ *     <tbacks x:battleback1,battleback2>   // x = 上書きする地形タグ
+ *
+ *
+ * 注:選択した戦闘背景は、要因によって決まります。
+ * 下記は戦闘背景が決定する優先順位のリストです。
+ *
+ * 戦闘背景選択の優先順位
+ * 1.マップの'戦闘背景指定'
+ * 2.イベントの'戦闘背景の変更'
+ * 3.リージョンIDマップのメモタグ
+ * 4.リージョンIDプラグインの設定
+ * 5.地形タグマップメモタグ ~~
+ * 6.地形タグプラグインの設定 ~~
+ * 7.RPGツクールMVのデフォルトによる自動戦闘背景選択 ~~
+ * 8.戦闘背景は無し
+ *
+ * ~~ 注:RPGツクールMVは、データベースで地形タグを0に設定している場合でも、
+ * 地形タイルをAタイルに割り当てているようです。
+ * 例え0に設定しても、それはまだ異なる番号であり、
+ * そのタグ番号が何であれ関連する戦闘背景を決定するのに
+ * 地形タグ設定を確認していることに注意してください。
+ *
+ * ---------------------------------------------------------------------------
+ */

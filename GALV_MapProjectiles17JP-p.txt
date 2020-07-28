@@ -1,0 +1,338 @@
+/*:ja
+ * @plugindesc (v.1.7) マップ上でプレイヤー/イベント/地形/リージョンで反応が変わる発射物を作成できます
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Tile Size
+ * @text 発射物サイズ
+ * @desc 発射物のデフォルトサイズ
+ * デフォルト:48
+ * @default 48
+ *
+ * @param Fade Speed
+ * @text フェード速度
+ * @desc 発射体が最大距離に達した時、フェードする速度
+ * @default 40
+ *
+ * @param Disable Mouse Move
+ * @text マウス移動の無効化
+ * @type boolean
+ * @on 無効化
+ * @off 有効化
+ * @desc マップでのクリック移動/操作を無効化
+ * 無効化:true / 有効化:false
+ * @default false
+ *
+ * @param Premade 1
+ * @text 事前設定1
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 2
+ * @text 事前設定2
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 3
+ * @text 事前設定3
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 4
+ * @text 事前設定4
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 5
+ * @text 事前設定5
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 6
+ * @text 事前設定6
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 7
+ * @text 事前設定7
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 8
+ * @text 事前設定8
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 9
+ * @text 事前設定9
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 10
+ * @text 事前設定10
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 11
+ * @text 事前設定11
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 12
+ * @text 事前設定12
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 13
+ * @text 事前設定13
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 14
+ * @text 事前設定14
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 15
+ * @text 事前設定15
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 16
+ * @text 事前設定16
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 17
+ * @text 事前設定17
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 18
+ * @text 事前設定18
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 19
+ * @text 事前設定19
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @param Premade 20
+ * @text 事前設定20
+ * @desc 発射物の事前設定
+ * sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/09/13/mv-map-projectiles/
+ *
+ *   Galv's Map Projectiles
+ * ---------------------------------------------------------------------------
+ * このプラグインを使用すると、
+ * マップ上でプレイヤー/イベント/地形/リージョンで反応が変わる
+ * 発射物を作成できます。
+ *
+ * 発射物は、スクリプトコールを使用してゲーム内で手動で作成するか、
+ * 発射物のPremade(事前設定)プラグインパラメーターで設定できます。
+ * これを行う方法に関する情報を以下に示します。
+ *
+ * ---------------------------------------------------------------------------
+ *   スクリプトコール(イベントスクリプト、自律移動のルートスクリプト内)
+ * ---------------------------------------------------------------------------
+ * ゲーム中に発射物を作成するには、いくつかの方法があります。
+ * 1つ目は、次のスクリプトコールのいずれかを使用し、発射物の設定することです。
+ *
+ *      Galv.PROJ.atTarget(sid,tid,s,d,'img',anim,'action',[r],[t],z,pid,size);
+ *      Galv.PROJ.dir(sid,dir,s,d,'img',anim,'action',[r],[t],z,pid,size);
+ *
+ * sid     = 開始イベントID/プレーヤーの場合は-1、マウスposの場合は'm'
+ * tid     = 対象イベントID/プレーヤーの場合は-1、マウスposの場合は'm'
+ * dir     = 対象ではなく発射された方向。
+ *           次のいずれかです。1,2,3,4,6,7,8,9,0
+ *           数字はテンキーの方向です。
+ *           対象の方向に0
+ * s       = 速度 - 発射体の移動速度
+ * d       = 距離 - 発射物が移動するタイルの最大数
+ * img     = 使用する画像/img/pictures/
+ *           アニメーション画像には、フレームと速度指定する書式を使います。
+ *           ファイル名(フレーム数,速度)
+ *             例 bullet(8,5)
+ *           発射物が1フレームの場合は、括弧なしです。
+ * action  = 発射物がプレイヤー/イベントに命中時、実行するアクション。
+ *           これらのアクションは、
+ *           <projEffect>注釈を持つイベントにのみ影響します
+ *           プレイヤーとイベントのアクションは | で区切られています
+ *           例 playerAction | eventAction
+ *           以下のアクション:
+ *           c(x)      // コモンイベントxを実行
+ *           S(x:t)    // スイッチxをtに変更(on/off)
+ *           s(L:t)    // セルフスイッチLをt(on/off)イベントのみに変更
+ *           e         // イベントの消去 - イベントのみ
+ * r       = 発射物が当たって止まるリージョンのリスト。
+ *           無入力 = なし
+ * t       = 発射物が当たって止まる地形タグのリスト。
+ *           無入力 = なし
+ * z       = z値。イベントのプライオリティになります。小数が使えます。
+ *           2以下   : '通常キャラの下'のキャラに命中します。
+ *           2.1-2.9 : '通常キャラと同じ'のキャラに命中します。
+ *                     キャラの下に表示されます。
+ *           3       : '通常キャラと同じ'のキャラに命中します。
+ *           3.1-3.9 : '通常キャラと同じ'のキャラに命中します。
+ *                      キャラの上に表示されます。
+ *           4以上   : '通常キャラの上'のキャラに命中します。
+ * pid     = 発射物のID番号。
+ *           無入力にすると、デフォルトは1になります。
+ *           発射物が通過するか、命中するか決定するイベントに使用されます
+ *           (以下で詳しく説明します)
+ * size    = 衝突を引き起こす発射体の中心からの距離。
+ *           ポイントに基づいた衝突の場合、無入力にします。
+ *
+ * 同じ設定で複数の場所に発射物を作成するには、
+ * プラグインパラメーター'Premade'(事前設定)で設定した発射物を使用する
+ * 次のスクリプトコールを使用します。
+ *
+ *      Galv.PROJ.quickTar(id);  // 事前設定されたIDを使用して発射物を作成します
+ *                               // (対象IDとしてtidを使用)
+ *      Galv.PROJ.quickDir(id);  // 事前設定されたIDを使用して発射物を作成します
+ *                               // (方向としてtidを使用)
+ *
+ * 注:次の2つで、オーバーライドsidを追加できます。
+ *
+ *      Galv.PROJ.quickTar(id,overrideId);
+ *      Galv.PROJ.quickDir(id,overrideId);
+ *
+ *
+ * 例1
+ * Galv.PROJ.dir(9,4,3,6,'bullet0',1,'c(7)|e',[5],[],3,1);
+ *   イベント9から発射物を発射します。
+ *   方向4(左)で起動します。
+ *   速度は3です。
+ *   6タイル移動します。
+ *   'bullet0'画像(/img/pictures/内)を使用します。
+ *   命中するとアニメーション1を再生します。
+ *   プレーヤーに命中すると、コモンイベント7が実行されます。
+ *     イベントに命中すると、イベントが消去されます
+ *       (イベントに<projEffect>タグがある場合)。
+ *   リージョン5で衝突します
+ *   地形タグの衝突はありません
+ *   z値は3です(プレーヤーと同じ)
+ *   識別子は1です
+ *
+ * 例2
+ * Galv.PROJ.atTarget(-1,2,5,7,'bullet1(8,5)',2,'|s(A:on),[5,6],[6],3,2);
+ *   プレイヤーから発射物を発射します
+ *   イベント2で起動します
+ *   速度は5です
+ *   7タイル移動します
+ *   'bullet1(8,5)'画像(/img/pictures/内)を使用します。
+ *     この画像は8フレームである必要があり、5の速度でアニメーション化します。
+ *   命中するとアニメーション2が再生されます。
+ *   プレーヤーに命中した場合、何もしません。
+ *     (プレーヤーからの発射の場合、それはできません)
+ *     イベントに命中すると、セルフスイッチAがオンになります。
+ *       (<projEffect>タグの場合)
+ *   リージョン5と6で衝突します。
+ *   地形タグ6のタイルに衝突します。
+ *   z値は3です。(プレーヤーと同じ)
+ *   識別子は2です。
+ *
+ * 例3
+ * Galv.PROJ.quickTar(1);
+ *   プラグインパラメーター'Premade 1'(事前設定1)の設定で発射物を発射します。
+ *
+ * 例4
+ * Galv.PROJ.quickTar(1,8);
+ *   プラグインパラメーター'Premade 1'(事前設定1)の設定に
+ *   sidをイベントID8に置き換えて、発射物を発射します。
+ *   自律移動のルートから行う場合、8番の代わりにthis._eventIdを使用し、
+ *   現在のイベントのIDを取得できます。
+ *
+ * 例5
+ * Galv.PROJ.atTarget(-1,2,5,4,'bulletBlast',12,'|s(A:on),[9],[],3,7,60);
+ *   プレイヤーから発射物を発射します
+ *   イベント2で起動します
+ *   速度は5です
+ *   4タイル移動します
+ *   'bulletBlast'画像(/img/pictures/内)を使用します。
+ *   命中するとアニメーション12が再生されます。
+ *   プレーヤーに命中した場合、何もしません
+ *     (プレーヤーからの発射の場合、それはできません)
+ *     イベントに命中すると、セルフスイッチAがオンになります。
+ *       (<projEffect>タグの場合)
+ *   リージョン9で衝突します
+ *   地形タイルと衝突しません
+ *   z値は3です(プレーヤーと同じ)
+ *   識別子は7です
+ *   サイズは60ピクセルで、通常より広い範囲に命中します。
+ *
+ * その他のスクリプトコール
+ *
+ *      $gamePlayer.projDodge = true/false;
+ *        // trueの場合、発射物はプレイヤーに命中できなくなります。
+ *      $gamePlayer._projEffect = true/false;
+ *        // デフォルトはtrueです。
+ *        // falseの場合、プレイヤーが命中した時、発射物の効果が有効になりません
+ *      $gamePlayer._projYoffset = y;
+ *        // プレイヤーから発射物を発射する時、発射体のy位置を変更します。
+ *
+ * ---------------------------------------------------------------------------
+ *   イベント注釈
+ * ---------------------------------------------------------------------------
+ * デフォルトでは、有効なイベントページに注釈タグがない場合、
+ * 全ての発射物がイベントと同じzレベルにある場合、
+ * イベントに衝突します(上記を参照)
+ *
+ *   <projBlock:true>    // 全ての発射物をブロックします。
+ *   <projBlock:false>   // 発射物をブロックしません。
+ *   <projBlock:x,x,x>   // リストにpidが含まれる発射物をブロックしません。
+ *
+ *   <projEffect>
+ *     // 命中時に発射物の効果を発生させたい場合、
+ *     // イベントページにこの注釈を含める必要があります。
+ *     // タグが存在しない場合、アクションは有効になりません。
+ *
+ *   <projEffect:x,x,x>
+ *     // 上記のタグの代わりに、これを使用すると、
+ *     // 命中する発射物にこのリストにpidが含まれている場合にのみ
+ *     // 発射物アクションを有効にすることができます。
+ *
+ *   <projY:x>           // 発射物の開始位置のy位置を変更します。
+ *
+ * ---------------------------------------------------------------------------
+ *
+ * スクリプトを使用して対象に命中する発射体によって呼び出される
+ * コモンイベント内からイベントID
+ * (プレーヤーの場合は-1、対象の場合は0)を取得するには下記を使用します。
+ *
+ *   Galv.PROJ.ceTargetId()
+ *
+ * 例えば、変数の操作-スクリプトでこれを使用し、
+ * その後条件分岐で、取得した内容に応じて何かを実行できます。
+ * これは、同時に実行される複数のコモンイベントでは信頼できない場合があります。
+ *
+ */

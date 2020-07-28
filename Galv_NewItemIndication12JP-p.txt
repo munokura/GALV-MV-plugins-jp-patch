@@ -1,0 +1,38 @@
+/*:ja
+ * @plugindesc (v.1.2) 初めて取得したアイテムに'NEW'アイコンを追加表示します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param New Icon Image
+ * @desc アイテムアイコンの上に配置される画像ファイル名(/img/system/内)
+ * @default newIcon
+ * @require 1
+ * @dir img/system/
+ * @type file
+ *
+ * @param Icon X Offset
+ * @desc 'NEW'画像のX方向オフセット(ピクセル)
+ * @default 0
+ *
+ * @param Icon Y Offset
+ * @desc 'NEW'画像のY方向オフセット(ピクセル)
+ * @default 0
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's New Item Indication
+ * ---------------------------------------------------------------------------
+ * このプラグインは、新しいアイテムであることを示すために、
+ * ゲームで初めて取得された武器/アイテム/防具アイコンの上に画像を追加します。
+ * この'NEW'画像はプレイヤーがメニューで調べる
+ * (カーソルをその上に移動してヘルプテキストを表示し、そこから離れる)
+ * と消えます。
+ *
+ * この画像は/img/system/に配置する必要があり、
+ * アイコンと同じサイズの場合、最適に機能します(デフォルト:32x32ピクセル)。
+ *
+ */

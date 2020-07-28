@@ -1,0 +1,64 @@
+/*:ja
+ * @plugindesc (v.1.6) '選択肢の表示'を変更して、ビジュアルノベルのように表示します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Command Width
+ * @desc 選択コマンドの幅。 VNButtons.pngの幅以下の必要があります
+ * @default 700
+ *
+ * @param Command Height
+ * @desc 選択コマンドの高さ
+ * @default 48
+ *
+ * @param Always Middle
+ * @desc '選択肢を表示'のウィンドウ位置に関係なく、中央に選択肢を表示。 true / false
+ * @type boolean
+ * @default true
+ *
+ * @param Message Gap
+ * @desc 選択肢が文章ウィンドウから離れて表示される距離
+ * @default 0
+ *
+ * @param Disabled Button
+ * @desc 無効な選択肢のボタンを表示する行番号(選択肢を無効にできるプラグインを使用している場合)
+ * @default 3
+ *
+ * @requiredAssets img/system/VNButtons
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's Visual Novel Choices
+ * ---------------------------------------------------------------------------
+ * 画像を使った選択肢を表示します。
+ *
+ * 選択肢の画像は
+ * /img/system/ フォルダー内に
+ * VNButtons.png を置いてください
+ * 各ボタンを上下に含む単一の画像ファイルです。
+ *
+ * 'Command Width'と'Command Height'の設定はボタンのサイズを制御します。
+ * 'Command Width'の設定と画像ピクセル幅とを同じにしてください。
+ *
+ * VNButtons画像ファイルの一番上のボタンは、
+ * ボタン上に表示されるカーソル画像です。
+ *
+ * 選択オプションのテキストで\b[x]を使用すると、
+ * その選択(xは行番号)とボタンの異なる画像を指定できます。
+ * 省略した場合、表示ボタンはボタン1(カーソル画像の下)になります。
+ *
+ * 'Disabled Button'オプションは、
+ * Himeの"Disabled Choice Conditions"等の
+ * 選択コマンドを無効にする別のプラグインを使用している場合に使用します。
+ *
+ * ---------------------------------------------------------------------------
+ *  スクリプトコール:
+ * ---------------------------------------------------------------------------
+ * 下記スクリプトで、選択肢の表示を画像/テキスト(true/false)に切り替えます。
+ *
+ *        $gameSystem.vnChoices = status;   // statusを true / false で指定
+ */

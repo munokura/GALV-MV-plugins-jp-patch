@@ -1,0 +1,168 @@
+/*:ja
+ * @plugindesc メインメニューのレイアウトを変更し、アクターの表示数を行列とも指定し、併せて立ち絵を表示できます
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Menu Actors
+ * @text アクター列数
+ * @desc スクロールせずにメニューに表示されるアクターの列数(ゲーム内で変更可能)
+ * @default 3
+ *
+ * @param Menu Actor Rows
+ * @text アクター行数
+ * @desc スクロールせずにメニューに表示されるアクターの行数(ゲーム内では変更できません)。立ち絵高設定を合わせて変更
+ * @default 1
+ *
+ * @param Name
+ * @text 名前
+ * @desc アクターの名前の行順番
+ * -1:表示しない
+ * @default 1
+ *
+ * @param Nickname
+ * @text 二つ名
+ * @desc アクターの二つ名の行順番
+ * -1:表示しない
+ * @default 0
+ *
+ * @param Class
+ * @text 職業
+ * @desc アクターの職業の行順番
+ * -1:表示しない
+ * @default 2
+ *
+ * @param Level
+ * @text レベル
+ * @desc アクターのレベルの行順番
+ * -1:表示しない
+ * @default 3
+ *
+ * @param States
+ * @text ステート
+ * @desc アクターのステートアイコンの行順番
+ * -1:表示しない
+ * @default 13
+ *
+ * @param Bars
+ * @text HP/MPバー
+ * @desc アクターのHP/MPバーの行順番
+ * -1:表示しない
+ * @default 14
+ *
+ * @param Show Exp Bar
+ * @text 経験値バー表示
+ * @type boolean
+ * @on 表示
+ * @off 非表示
+ * @desc 経験値バーを表示
+ * 表示:true / 非表示:false
+ * @default true
+ *
+ * @param Exp Bar
+ * @text 経験値バー
+ * @desc アクターの経験値バーの行順番
+ * -1:表示しない
+ * @default 4
+ *
+ * @param JP
+ * @text JP
+ * @desc アクターのJPの行順番(YEP_JobPoints使用時)
+ * -1:表示しない
+ * @default 2
+ *
+ * @param Exp Bar Height
+ * @text 経験値バー高
+ * @desc 経験値バーの高さ(ピクセル)
+ * @default 10
+ *
+ * @param Show Exp Text
+ * @text 経験値テキスト表示
+ * @type boolean
+ * @on 表示
+ * @off 非表示
+ * @desc バーに経験値テキストを表示
+ * 表示:true / 非表示:false
+ * @default true
+ *
+ * @param Exp Text
+ * @text 経験値テキスト
+ * @desc 経験値バーに表示されるテキスト
+ * @default 次
+ *
+ * @param Max Exp Text
+ * @text 最大経験値テキスト
+ * @desc アクターが最大レベル時、経験値バーに表示されるテキスト
+ * @default 最大
+ *
+ * @param Exp Bar Color 1
+ * @text 経験値バーの色1
+ * @desc 文字色番号で指定。色2とのグラデーション
+ * @default 0
+ *
+ * @param Exp Bar Color 2
+ * @text 経験値バーの色2
+ * @desc 文字色番号で指定。色1とのグラデーション
+ * @default 8
+ *
+ * @param Bust Y
+ * @text 立ち絵Y位置
+ * @desc 立ち絵のY位置(ピクセル単位)
+ * @default 100
+ *
+ * @param Bust Height
+ * @text 立ち絵高
+ * @desc 立ち絵の高さ(ピクセル単位)
+ * @default 360
+ *
+ * @param -----------
+ * @text -----------
+ * @desc
+ *
+ * @default
+ *
+ * @param Bust Offsets
+ * @text 立ち絵オフセット
+ * @desc 使用方法はヘルプ参照
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2015/11/08/mv-bust-menu/
+ *
+ *   Galv's Bust Menu
+ * ---------------------------------------------------------------------------
+ * このプラグインは、メインメニューのアクターのレイアウトを変更します。
+ * プラグインには、メニュー画面に表示されるアクターの数など、
+ * アクターのデータの位置(名前、レベル、HP、画像など)を
+ * 変更できる設定が含まれています。
+ * 注:アクターが1人の場合、アクターの表示数の機能は働きません。
+ *
+ * プラグインは、
+ * アクター顔画像に基づいて立ち絵(/img/pictures/内)を表示します。
+ * 例:アクターが顔画像'Actor1'(/img/faces/内)の2番目の顔を使用する場合、
+ * 立ち絵は代わりに立ち絵 Actor1_2.png (/img/pictures/内)を使用します。
+ * ---------------------------------------------------------------------------
+ *   立ち絵オフセット(プラグイン設定を下にスクロールしてこれを見つけます)
+ * ---------------------------------------------------------------------------
+ * 立ち絵はアクターの位置の中央に配置されますが、
+ * 立ち絵は中央に配置されない場合があります。
+ * この設定は、必要に応じて立ち絵のx、y位置を調整するために使用されます。
+ * 立ち絵にx、yオフセットを追加するには、
+ * 次のように設定にデータを追加します。
+ *
+ *     bustImageName_1,x,y|bustImageName_2,x,y|bustImageName_3,x,y
+ *
+ * 各画像とデータはパイプ('|'記号)で区切られます。
+ * 例
+ * Actor1_2,-10,0|Actor1_5,20,5
+ * 立ち絵 Actor1_2.png は、10ピクセル左にオフセットされます
+ * 立ち絵 Actor1_5.png は、20ピクセル右に、5ピクセル下にオフセットされます
+ * ---------------------------------------------------------------------------
+ *   スクリプトコール
+ * ---------------------------------------------------------------------------
+ * $gameParty._bustActorCount = x;        // x:表示するアクターの番号
+ * ---------------------------------------------------------------------------
+ */

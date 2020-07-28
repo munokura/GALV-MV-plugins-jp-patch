@@ -1,0 +1,27 @@
+/*:ja
+ * @plugindesc (v.1.0) セーブデータをロードする度にコモンイベントを実行します
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Load Save File Event
+ * @text ロード時コモンイベント
+ * @type common_event
+ * @desc セーブデータをロード時に実行されるコモンイベントのID
+ * @default 0
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2017/01/23/mv-load-common-event/
+ *
+ *   Galv's Load Common Event
+ * ---------------------------------------------------------------------------
+ * セーブデータをロードする度に
+ * 実行されるコモンイベントを設定できるシンプルなプラグインです。
+ * プラグインパラメーター'Load Save File Event'(ロード時コモンイベント)で
+ * 実行するコモンイベントのIDを設定できます。
+ *
+ */

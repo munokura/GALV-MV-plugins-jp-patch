@@ -1,0 +1,36 @@
+/*:ja
+ * @plugindesc ダッシュを無効にできます
+ * 
+ * @author Galv - galvs-scripts.com
+ * 
+ * @param Disable Option
+ * @type boolean
+ * @on 無効
+ * @off 有効
+ * @text オプション無効
+ * @desc デフォルトの'オプション'メニューで'常時ダッシュ'を無効
+ * 無効:true / 有効:false 
+ * @default true
+ * 
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ * 
+ * 元プラグイン:
+ * https://galvs-scripts.com/2016/05/24/mv-disable-dash/
+ * 
+ *   Galv's Disable Dash
+ * ---------------------------------------------------------------------------
+ * ダッシュはデフォルトで無効になっています。
+ * ボタンを押してプレーヤーをより速く実行したくないゲーム向けです。
+ * 'Disable Option'(オプション無効)プラグインパラメーターは、
+ * オプションメニューで'常時ダッシュ'のオン/オフを無効にします。
+ * 
+ * スクリプトコールを使用して、ゲーム中にいつでも変更できます。
+ * 
+ *    $gameSystem._dashEnabled = true;       // ダッシュをオンにします
+ *    $gameSystem._dashEnabled = false;      // ダッシュをオフにします
+ * 
+ * ---------------------------------------------------------------------------
+ */

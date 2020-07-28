@@ -1,0 +1,61 @@
+/*:ja
+ * @plugindesc 小型船、大型船、飛行船に乗降できる場所をリージョンID/地形タグIDで設定できます
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Boat Regions
+ * @text 小型船リージョン
+ * @desc '小型船'を乗降できる場所。
+ * リージョンIDをコンマで区切って入力
+ * @default
+ *
+ * @param Boat Terrains
+ * @text 小型船地形
+ * @desc '小型船'を乗降できる場所
+ * 地形タグをコンマで区切って入力
+ * @default
+ *
+ * @param Ship Regions
+ * @text 大型船リージョン
+ * @desc '大型船'を乗降できる場所
+ * リージョンIDをコンマで区切って入力
+ * @default
+ *
+ * @param Ship Terrains
+ * @text 大型船地形
+ * @desc '大型船'を乗降できる場所
+ * 地形タグをコンマで区切って入力
+ * @default
+ *
+ * @param Airship Regions
+ * @text 飛行船リージョン
+ * @desc '飛行船'を乗降できる場所
+ * リージョンIDをコンマで区切って入力
+ * @default
+ *
+ * @param Airship Terrains
+ * @text 飛行船地形
+ * @desc '飛行船'を乗降できる場所
+ * 地形タグをコンマで区切って入力
+ * @default
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2015/10/26/mv-vehicle-onoff-locations/
+ *
+ *   Galv's Vehicle On/Off Locations
+ * ---------------------------------------------------------------------------
+ * 各デフォルト乗り物(小型船、大型船、飛行船)に使用する
+ * リージョン/地形タグを設定します。
+ * マップ上に配置するタイルを選択すると、
+ * 左側にある[R]タブに移動してリージョンを作成します。
+ * 地形タグは、データベースの[タイルセット]タブで設定されます。
+ * 右側の[地形タグ]ボタンを押し、タイルをクリックしてIDを変更します。
+ *
+ * 設定で指定されたリージョン/地形タグの上にのみ、
+ * 各乗り物に乗降できます。
+ */

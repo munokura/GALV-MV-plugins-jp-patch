@@ -1,0 +1,108 @@
+/*:ja
+ * @plugindesc 対象選択時、会心率、ダメージ等の情報ボックスを表示します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Include Evade
+ * @text 回避率を反映
+ * @desc true / false - 対象の回避率が情報ボックスの命中率に反映する設定
+ * @type boolean
+ * @default true
+ *
+ * @param Windowskin Opacity
+ * @text ウィンドウスキンの不透明度
+ * @desc ボックス背景の不透明度
+ * @default 0
+ *
+ * @param Peek Height
+ * @text 最大高 ※ほぼ機能しないため0を推奨
+ * @desc 情報ボックスの初期の表示位置。画面最上部から下への距離(ピクセル)
+ * @default 0
+ *
+ * @param Box Dimensions
+ * @text 情報ボックスの大きさ
+ * @desc 幅,高さ - 情報ボックスの大きさ。 背景画像は同じ大きさの必要があります。
+ * @default 500,260
+ *
+ * @param Default Enemy Indicator
+ * @text デフォルトの敵インジケーター
+ * @desc 画像ファイル名,x,y - 敵を対象にする時に表示されるインジケーター画像ファイルの指定。画像ファイルは /img/system/ に保存
+ * @default battleAttackInfoArrow1,96,165
+ *
+ * @param Default Ally Indicator
+ * @text デフォルトの仲間インジケーター
+ * @desc 画像ファイル名,x,y - 仲間を対象にする時に表示されるインジケーター画像ファイルの指定。画像ファイルは /img/system/ に保存
+ * @default battleAttackInfoArrow2,96,165
+ *
+ * @param Min Damage Position
+ * @text 最小ダメージ位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 170,30,75,center
+ *
+ * @param Max Damage Position
+ * @text 最大ダメージ位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 260,30,75,center
+ *
+ * @param Damage Heal Color
+ * @text ダメージ回復色
+ * @desc 最小/最大ダメージの場合 - スキル/アイテムがダメージを与える代わりに回復する際の優先色。使用しない場合は空白のままにします。
+ * @default #68ff64
+ *
+ * @param Crit Chance Position
+ * @text 会心率の位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 170,90,160,center,14,#ffb7a0
+ *
+ * @param Skill Name Position
+ * @text スキル名の位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 100,115,300,center
+ *
+ * @param Hit Chance Position
+ * @text 命中率の位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 170,70,160,center,18
+ *
+ * @param Icon Position
+ * @text アイコンの位置
+ * @desc x,y,幅,配置,サイズ,色 - 配置はcenter,left,rightのいずれか、ツクールのデフォルトはサイズ/色を空白のまま
+ * @default 250,155,center,12
+ *
+ * @param Add Icon
+ * @text 追加アイコン
+ * @desc ステート/バフが追加されていることを示すアイコンID。ステート/バフのアイコンと重なります。
+ * @default 0
+ *
+ * @param Remove Icon
+ * @text 解除アイコン
+ * @desc ステート/バフが解除されることを示すアイコンID。ステート/バフのアイコンと重なります。
+ * @default 0
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's Attack Info
+ * ---------------------------------------------------------------------------
+ * このプラグインは、戦闘中にアイテム/スキルが使用される時、
+ * ドロップダウンボックスを表示します。
+ * ボックスには、選択した対象に対して使用されるスキル/アイテムの
+ * 効果に関する情報を含みます。
+ * プラグイン設定の大半は、
+ * 攻撃情報ボックスの外観とレイアウトをカスタマイズするためのものです。
+ *
+ * 必要画像ファイルは、下記フォルダに保存してください。
+ * /img/system/
+ *
+ * 注:プラグインは、計算式内のJavaScriptコードで行われた変更を検出しません。
+ * 例えば、計算式内のコードを使用してステートを追加しても、
+ * 表示は更新されません。
+ *
+ * 今後の機能:
+ * - デフォルトの敵と仲間者のインジケーターの矢印の代わりに
+ *   ユニークな画像を使用できるスキル
+ * - ボックスにデータを追加するカスタムフィールド
+ */

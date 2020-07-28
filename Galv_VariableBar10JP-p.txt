@@ -1,0 +1,56 @@
+/*:ja
+ * @plugindesc (v.1.0) 変数を使用して最大値と現在値を表示するグラフィカルバーをマップシーンに表示。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * ---------------------------------------------------------------------------
+ *   Galv's Variable Bar
+ * ---------------------------------------------------------------------------
+ * このプラグインは、各バーの作成時に選択される2つの変数に基づいて、
+ * マップシーンにグラフィカルバーを表示します。
+ *
+ * ---------------------------------------------------------------------------
+ *   スクリプトコール
+ * ---------------------------------------------------------------------------
+ * 下記のスクリプトで、画面に変数バーを作成できます。
+ *
+ *      Galv.VBAR.create(id,"barimage","barimage2",var1,var2,x,y,ox,oy);
+ *
+ * id         = 変数バーを参照する一意のID番号とインデックス
+ * barimage   = 変数バーに使用する画像ファイル名 (/img/pictures/内)
+ * barimage2  = バーの下層に使用する画像ファイル名 (/img/pictures/内)
+ * var1       = バーの現在の値に使用する変数ID
+ * var2       = バーの最大値に使用する変数ID
+ * x          = 画面上のバー画像のX位置
+ * y          = 画面上のバー画像のY位置
+ * ox         = barimage2に対するbarimageのxオフセット
+ * oy         = barimage2に対するbarimageのyオフセット
+ *
+ * 例
+ *   Galv.VBAR.create(0,"bar1","bar1_bg",1,2,10,10,7,11);
+ *
+ * 既に作成したバーと同じIDで新しいバーを作成すると、
+ * 古いバーが削除され、新しいバーが作成されます。
+ *
+ *
+ * 下記で、画面から変数バーを削除できます。
+ *
+ *       Galv.VBAR.remove(id);
+ *
+ *
+ * 下記で、変数バーを変更できます。
+ *
+ *       Galv.VBAR.mod(id).barimage = "image";
+ *       Galv.VBAR.mod(id).barimage2 = "image";
+ *       Galv.VBAR.mod(id).var1 = currentVarId;
+ *       Galv.VBAR.mod(id).var2 = maxVarId;
+ *       Galv.VBAR.mod(id).x = xPos;
+ *       Galv.VBAR.mod(id).y = yPos;
+ *       Galv.VBAR.mod(id).ox = oxPos;
+ *       Galv.VBAR.mod(id).oy = oyPos;
+ */

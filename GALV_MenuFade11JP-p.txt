@@ -1,0 +1,29 @@
+/*:ja
+ * @plugindesc メインメニューにフェードインとフェードアウトを追加します。
+ *
+ * @author Galv - galvs-scripts.com
+ *
+ * @param Fade Speed
+ * @text フェード速度
+ * @desc メニューがフェードインするフレーム量
+ * @default 10
+ *
+ * @param Dont Fade Scenes
+ * @text フェード不使用シーン
+ * @desc フェードを使用しないシーン名。コンマで区切ります。
+ * @default Scene_Title,Scene_Load
+ * @help
+ * 翻訳:ムノクラ
+ * https://fungamemake.com/
+ * https://twitter.com/munokura/
+ *
+ * 元プラグイン:
+ * https://galvs-scripts.com/2015/11/14/mv-menu-fade/
+ *
+ *   Galv's Menu Fade
+ * ---------------------------------------------------------------------------
+ * プラグ＆プレイ。
+ * 唯一のオプションは、フェードの速度を変更することです。
+ * 数値が大きいほど、フェード速度は遅くなります。
+ *
+ */
